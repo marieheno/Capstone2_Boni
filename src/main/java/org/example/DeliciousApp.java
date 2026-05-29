@@ -145,7 +145,7 @@ public class DeliciousApp extends JFrame {
 
         // ================= POPULAR =================
 
-        JLabel popular = new JLabel("POPULAR SANDWICHES");
+        JLabel popular = new JLabel(" SIGNATURE SANDWICHES");
 
         popular.setFont(new Font("Arial", Font.BOLD, 24));
 
@@ -387,6 +387,8 @@ public class DeliciousApp extends JFrame {
         return panel;
     }
 
+
+
     // =========================================================
     // SANDWICH SCREEN
     // =========================================================
@@ -399,18 +401,22 @@ public class DeliciousApp extends JFrame {
                         panel,
                         BoxLayout.Y_AXIS));
 
-        // =========================================
+        panel.setMaximumSize(
+                new Dimension(
+                        Integer.MAX_VALUE,
+                        Integer.MAX_VALUE));
+
+        // =================================================
         // TITLE
-        // =========================================
+        // =================================================
 
         JLabel title =
-                createTitle("BUILD SANDWICH");
+                createTitle(
+                        "BUILD SANDWICH");
 
         title.setAlignmentX(
                 Component.CENTER_ALIGNMENT);
 
-        panel.setAlignmentX(
-                Component.CENTER_ALIGNMENT);
         JPanel titlePanel =
                 new JPanel();
 
@@ -421,26 +427,27 @@ public class DeliciousApp extends JFrame {
         panel.add(titlePanel);
 
         panel.add(Box.createRigidArea(
-                new Dimension(0,20)));
+                new Dimension(0,15)));
 
-        // =========================================
+        // =================================================
         // IMAGE
-        // =========================================
+        // =================================================
 
-        ImageIcon icon = new ImageIcon(
-                Objects.requireNonNull(
-                        getClass().getResource(
-                                "/images/sandwich.png")));
+        ImageIcon icon =
+                new ImageIcon(
+                        Objects.requireNonNull(
+                                getClass().getResource(
+                                        "/images/sandwich.png")));
 
-        Image img = icon.getImage();
-
-        Image scaled = img.getScaledInstance(
-                320,
-                190,
-                Image.SCALE_SMOOTH);
+        Image scaled =
+                icon.getImage().getScaledInstance(
+                        350,
+                        200,
+                        Image.SCALE_SMOOTH);
 
         JLabel image =
-                new JLabel(new ImageIcon(scaled));
+                new JLabel(
+                        new ImageIcon(scaled));
 
         image.setAlignmentX(
                 Component.CENTER_ALIGNMENT);
@@ -455,36 +462,14 @@ public class DeliciousApp extends JFrame {
         panel.add(imagePanel);
 
         panel.add(Box.createRigidArea(
-                new Dimension(0,25)));
+                new Dimension(0,20)));
 
-        // =========================================
-// BREAD
-// =========================================
+        // =================================================
+        // BREAD
+        // =================================================
 
         JPanel breadPanel =
-                new JPanel(
-                        new FlowLayout(
-                                FlowLayout.LEFT,
-                                10,
-                                10));
-
-        breadPanel.setOpaque(false);
-
-        breadPanel.setBorder(
-                BorderFactory.createCompoundBorder(
-
-                        BorderFactory.createTitledBorder(
-                                BorderFactory.createLineBorder(
-                                        new Color(220,200,180),
-                                        2,
-                                        true),
-                                "BREAD"),
-
-                        new EmptyBorder(
-                                10,
-                                10,
-                                10,
-                                10)));
+                createSectionPanel("BREAD");
 
         JToggleButton white =
                 check("White", "+0.00");
@@ -518,34 +503,12 @@ public class DeliciousApp extends JFrame {
         panel.add(Box.createRigidArea(
                 new Dimension(0,20)));
 
-        // =========================================
-// SIZE
-// =========================================
+        // =================================================
+        // SIZE
+        // =================================================
 
         JPanel sizePanel =
-                new JPanel(
-                        new FlowLayout(
-                                FlowLayout.LEFT,
-                                10,
-                                10));
-
-        sizePanel.setOpaque(false);
-
-        sizePanel.setBorder(
-                BorderFactory.createCompoundBorder(
-
-                        BorderFactory.createTitledBorder(
-                                BorderFactory.createLineBorder(
-                                        new Color(220,200,180),
-                                        2,
-                                        true),
-                                "SIZE"),
-
-                        new EmptyBorder(
-                                10,
-                                10,
-                                10,
-                                10)));
+                createSectionPanel("SIZE");
 
         JToggleButton four =
                 check("4 Inch", "$5.50");
@@ -574,34 +537,20 @@ public class DeliciousApp extends JFrame {
         panel.add(Box.createRigidArea(
                 new Dimension(0,20)));
 
-        // =========================================
+        // =================================================
         // MEATS
-        // =========================================
+        // =================================================
 
         JPanel meatPanel =
-                new JPanel(
-                        new FlowLayout(
-                                FlowLayout.LEFT,
-                                10,
-                                10));
+                createSectionPanel("MEATS");
 
-        meatPanel.setOpaque(false);
+        meatPanel.setLayout(
+                new GridLayout(
+                        2,
+                        6,
+                        10,
+                        10));
 
-        meatPanel.setBorder(
-                BorderFactory.createCompoundBorder(
-
-                        BorderFactory.createTitledBorder(
-                                BorderFactory.createLineBorder(
-                                        new Color(220,200,180),
-                                        2,
-                                        true),
-                                "MEATS"),
-
-                        new EmptyBorder(
-                                10,
-                                10,
-                                10,
-                                10)));
         meatPanel.add(check("Steak", "+2.00"));
         meatPanel.add(check("Extra Steak", "+1.00"));
 
@@ -625,34 +574,22 @@ public class DeliciousApp extends JFrame {
         panel.add(Box.createRigidArea(
                 new Dimension(0,20)));
 
-        // =========================================
+        // =================================================
         // CHEESE
-        // =========================================
+        // =================================================
 
         JPanel cheesePanel =
-                new JPanel(
-                        new FlowLayout(
-                                FlowLayout.LEFT,
-                                10,
-                                10));
+                createSectionPanel("CHEESE");
 
-        cheesePanel.setOpaque(false);
+        cheesePanel.setMaximumSize(
+                new Dimension(1200,180));
 
-        cheesePanel.setBorder(
-                BorderFactory.createCompoundBorder(
-
-                        BorderFactory.createTitledBorder(
-                                BorderFactory.createLineBorder(
-                                        new Color(220,200,180),
-                                        2,
-                                        true),
-                                "CHEESE"),
-
-                        new EmptyBorder(
-                                10,
-                                10,
-                                10,
-                                10)));
+        cheesePanel.setLayout(
+                new GridLayout(
+                        2,
+                        4,
+                        10,
+                        10));
 
         cheesePanel.add(check("American", "+1.50"));
         cheesePanel.add(check("Extra American", "+0.60"));
@@ -671,34 +608,22 @@ public class DeliciousApp extends JFrame {
         panel.add(Box.createRigidArea(
                 new Dimension(0,20)));
 
-        // =========================================
+        // =================================================
         // TOPPINGS
-        // =========================================
+        // =================================================
 
         JPanel toppingsPanel =
-                new JPanel(
-                        new FlowLayout(
-                                FlowLayout.LEFT,
-                                10,
-                                10));
+                createSectionPanel("TOPPINGS");
 
-        toppingsPanel.setOpaque(false);
+        toppingsPanel.setMaximumSize(
+                new Dimension(1200,180));
 
-        toppingsPanel.setBorder(
-                BorderFactory.createCompoundBorder(
-
-                        BorderFactory.createTitledBorder(
-                                BorderFactory.createLineBorder(
-                                        new Color(220,200,180),
-                                        2,
-                                        true),
-                                "TOPPINGS"),
-
-                        new EmptyBorder(
-                                10,
-                                10,
-                                10,
-                                10)));
+        toppingsPanel.setLayout(
+                new GridLayout(
+                        2,
+                        5,
+                        10,
+                        10));
 
         toppingsPanel.add(check("Lettuce", "+0.00"));
         toppingsPanel.add(check("Peppers", "+0.00"));
@@ -719,34 +644,22 @@ public class DeliciousApp extends JFrame {
         panel.add(Box.createRigidArea(
                 new Dimension(0,20)));
 
-        // =========================================
+        // =================================================
         // SAUCES
-        // =========================================
+        // =================================================
 
         JPanel saucePanel =
-                new JPanel(
-                        new FlowLayout(
-                                FlowLayout.LEFT,
-                                10,
-                                10));
+                createSectionPanel("SAUCES");
 
-        saucePanel.setOpaque(false);
+        saucePanel.setMaximumSize(
+                new Dimension(1200,150));
 
-        saucePanel.setBorder(
-                BorderFactory.createCompoundBorder(
-
-                        BorderFactory.createTitledBorder(
-                                BorderFactory.createLineBorder(
-                                        new Color(220,200,180),
-                                        2,
-                                        true),
-                                "SAUCES"),
-
-                        new EmptyBorder(
-                                10,
-                                10,
-                                10,
-                                10)));
+        saucePanel.setLayout(
+                new GridLayout(
+                        2,
+                        3,
+                        10,
+                        10));
 
         saucePanel.add(check("Mayo", "+0.00"));
         saucePanel.add(check("Mustard", "+0.00"));
@@ -762,67 +675,93 @@ public class DeliciousApp extends JFrame {
         panel.add(Box.createRigidArea(
                 new Dimension(0,20)));
 
-        // =========================================
+        // =================================================
         // SIDES
-        // =========================================
+        // =================================================
 
         JPanel sidePanel =
-                new JPanel(
-                        new FlowLayout(
-                                FlowLayout.LEFT,
-                                10,
-                                10));
-
-        sidePanel.setOpaque(false);
-
-        sidePanel.setBorder(
-                BorderFactory.createCompoundBorder(
-
-                        BorderFactory.createTitledBorder(
-                                BorderFactory.createLineBorder(
-                                        new Color(220,200,180),
-                                        2,
-                                        true),
-                                "SIDES"),
-
-                        new EmptyBorder(
-                                10,
-                                10,
-                                10,
-                                10)));
+                createSectionPanel("SIDES");
 
         sidePanel.add(check("Au Jus", "+0.00"));
-
         sidePanel.add(check("Sauce", "+0.00"));
-
-        sidePanel.add(check("Toasted", "+0.00"));
 
         panel.add(sidePanel);
 
         panel.add(Box.createRigidArea(
-                new Dimension(0,30)));
+                new Dimension(0,20)));
 
-        // =========================================
-        // BUTTONS
-        // =========================================
+        // =================================================
+        // TOASTED
+        // =================================================
 
-        JPanel buttonPanel =
-                new JPanel(
-                        new GridLayout(
-                                1,
-                                2,
+        JPanel toastedPanel =
+                createSectionPanel("TOASTED");
+
+        JRadioButton yes =
+                radio("Yes");
+
+        JRadioButton no =
+                radio("No");
+
+        ButtonGroup toastedGroup =
+                new ButtonGroup();
+
+        toastedGroup.add(yes);
+        toastedGroup.add(no);
+
+        no.setSelected(true);
+
+        toastedPanel.add(yes);
+        toastedPanel.add(no);
+
+        panel.add(toastedPanel);
+
+        panel.add(Box.createRigidArea(
+                new Dimension(0,25)));
+
+        // =================================================
+        // BUTTON CARD
+        // =================================================
+
+        JPanel buttonCard =
+                new JPanel();
+
+        buttonCard.setLayout(
+                new GridLayout(
+                        1,
+                        2,
+                        20,
+                        0));
+
+        buttonCard.setBackground(
+                new Color(255,248,240));
+
+        buttonCard.setBorder(
+                BorderFactory.createCompoundBorder(
+
+                        BorderFactory.createLineBorder(
+                                new Color(220,220,220),
+                                2),
+
+                        new EmptyBorder(
                                 20,
-                                0));
+                                20,
+                                20,
+                                20)));
 
-        buttonPanel.setOpaque(false);
+        buttonCard.setMaximumSize(
+                new Dimension(900,100));
 
         RoundedButton backButton =
-                new RoundedButton("BACK");
+                new RoundedButton(
+                        "BACK");
 
         RoundedButton addButton =
-                new RoundedButton("ADD TO ORDER");
+                new RoundedButton(
+                        "ADD TO ORDER");
 
         backButton.addActionListener(e ->
+
                 cardLayout.show(
                         mainPanel,
                         "ORDER"));
@@ -846,14 +785,18 @@ public class DeliciousApp extends JFrame {
                     "ORDER");
         });
 
-        buttonPanel.add(backButton);
+        buttonCard.add(backButton);
 
-        buttonPanel.add(addButton);
+        buttonCard.add(addButton);
 
-        panel.add(buttonPanel);
+        panel.add(buttonCard);
 
         panel.add(Box.createRigidArea(
-                new Dimension(0,20)));
+                new Dimension(0,25)));
+
+        // =================================================
+        // SCROLL
+        // =================================================
 
         JScrollPane scrollPane =
                 new JScrollPane(
@@ -869,9 +812,45 @@ public class DeliciousApp extends JFrame {
         return scrollPane;
     }
 
-// =========================================
-// CHECKBOX STYLE
-// =========================================
+// =================================================
+// SECTION PANEL
+// =================================================
+
+    private JPanel createSectionPanel(
+            String title) {
+
+        JPanel panel =
+                new JPanel(
+                        new FlowLayout(
+                                FlowLayout.LEFT,
+                                10,
+                                10));
+
+        panel.setOpaque(false);
+
+        panel.setMaximumSize(
+                new Dimension(1200,150));
+
+        panel.setBorder(
+                BorderFactory.createCompoundBorder(
+
+                        BorderFactory.createTitledBorder(
+
+                                BorderFactory.createLineBorder(
+                                        new Color(220,200,180),
+                                        2,
+                                        true),
+
+                                title),
+
+                        new EmptyBorder(
+                                10,
+                                10,
+                                10,
+                                10)));
+
+        return panel;
+    }
 
     private JToggleButton check(
             String text,
@@ -882,21 +861,17 @@ public class DeliciousApp extends JFrame {
                         "<html><center>"
                                 + text
                                 + "<br>"
-                                + "<span style='font-size:13px;'>"
                                 + price
-                                + "</span>"
                                 + "</center></html>");
 
         button.setPreferredSize(
-                new Dimension(170,75));
+                new Dimension(150,70));
 
         button.setFont(
-                new Font("Arial",
+                new Font(
+                        "Arial",
                         Font.BOLD,
-                        15));
-
-        button.setHorizontalAlignment(
-                SwingConstants.CENTER);
+                        14));
 
         button.setFocusPainted(false);
 
@@ -924,47 +899,12 @@ public class DeliciousApp extends JFrame {
                                 10,
                                 10)));
 
-        // =========================================
-        // HOVER EFFECT
-        // =========================================
-
-        button.addMouseListener(
-                new java.awt.event.MouseAdapter() {
-
-                    public void mouseEntered(
-                            java.awt.event.MouseEvent e) {
-
-                        if(!button.isSelected()) {
-
-                            button.setBackground(
-                                    new Color(
-                                            255,
-                                            245,
-                                            235));
-                        }
-                    }
-
-                    public void mouseExited(
-                            java.awt.event.MouseEvent e) {
-
-                        if(!button.isSelected()) {
-
-                            button.setBackground(
-                                    Color.WHITE);
-                        }
-                    }
-                });
-
-        // =========================================
-        // SELECTED EFFECT
-        // =========================================
-
         button.addItemListener(e -> {
 
             if(button.isSelected()) {
 
                 button.setBackground(
-                        new Color(95,45,18));
+                        new Color(145,85,55));
 
                 button.setForeground(
                         Color.WHITE);
@@ -983,27 +923,7 @@ public class DeliciousApp extends JFrame {
         return button;
     }
 
-// =========================================
-// RADIO STYLE
-// =========================================
 
-    private JRadioButton radio(String text) {
-
-        JRadioButton button =
-                new JRadioButton(text);
-
-        button.setOpaque(false);
-
-        button.setFont(
-                new Font("Arial",
-                        Font.BOLD,
-                        15));
-
-        button.setForeground(
-                new Color(70,40,20));
-
-        return button;
-    }
 
     // =========================================================
     // DRINK SCREEN
@@ -1111,21 +1031,59 @@ public class DeliciousApp extends JFrame {
         return scrollPane;
     }
 
+    private JRadioButton radio(
+            String text) {
+
+        JRadioButton button =
+                new JRadioButton(text);
+
+        button.setOpaque(false);
+
+        button.setFont(
+                new Font(
+                        "Arial",
+                        Font.BOLD,
+                        15));
+
+        button.setForeground(
+                new Color(70,40,20));
+
+        button.setFocusPainted(false);
+
+        return button;
+    }
+
     private JPanel createDrinkCard(
             String name,
             String price,
             String imagePath) {
 
-        JPanel card = new JPanel();
+        JPanel flipCard = new JPanel();
 
-        card.setLayout(
+        CardLayout flipLayout =
+                new CardLayout();
+
+        flipCard.setLayout(
+                flipLayout);
+
+        flipCard.setPreferredSize(
+                new Dimension(260,380));
+
+        // =================================================
+        // FRONT SIDE
+        // =================================================
+
+        JPanel front = new JPanel();
+
+        front.setLayout(
                 new BoxLayout(
-                        card,
+                        front,
                         BoxLayout.Y_AXIS));
 
-        card.setBackground(Color.WHITE);
+        front.setBackground(
+                Color.WHITE);
 
-        card.setBorder(
+        front.setBorder(
                 BorderFactory.createCompoundBorder(
 
                         BorderFactory.createLineBorder(
@@ -1137,23 +1095,15 @@ public class DeliciousApp extends JFrame {
                                 20,
                                 20)));
 
-        // =========================================
-        // IMAGE
-        // =========================================
-
         JLabel image =
                 new JLabel(
                         loadIcon(
                                 imagePath,
-                                120,
-                                120));
+                                250,
+                                250));
 
         image.setAlignmentX(
                 Component.CENTER_ALIGNMENT);
-
-        // =========================================
-        // NAME
-        // =========================================
 
         JLabel title =
                 new JLabel(name);
@@ -1164,46 +1114,258 @@ public class DeliciousApp extends JFrame {
                         Font.BOLD,
                         22));
 
-        title.setForeground(BROWN);
+        title.setForeground(
+                BROWN);
 
         title.setAlignmentX(
                 Component.CENTER_ALIGNMENT);
 
-        // =========================================
-        // PRICE
-        // =========================================
+        RoundedButton chooseFlavor =
+                new RoundedButton(
+                        "CHOOSE FLAVOR");
 
-        JLabel priceLabel =
-                new JLabel(price);
+        chooseFlavor.setMaximumSize(
+                new Dimension(210,45));
 
-        priceLabel.setFont(
+        chooseFlavor.setAlignmentX(
+                Component.CENTER_ALIGNMENT);
+
+        chooseFlavor.addActionListener(e ->
+
+                flipLayout.show(
+                        flipCard,
+                        "BACK"));
+
+        JPanel imagePanel =
+                new JPanel();
+
+        imagePanel.setOpaque(false);
+
+        imagePanel.setAlignmentX(
+                Component.CENTER_ALIGNMENT);
+
+        imagePanel.add(image);
+
+        front.add(imagePanel);
+
+        front.add(Box.createRigidArea(
+                new Dimension(0,10)));
+
+        front.add(title);
+
+        front.add(Box.createRigidArea(
+                new Dimension(0,20)));
+
+        front.add(chooseFlavor);
+
+        // =================================================
+        // BACK SIDE
+        // =================================================
+
+        JPanel back = new JPanel();
+
+        back.setLayout(
+                new BoxLayout(
+                        back,
+                        BoxLayout.Y_AXIS));
+
+        back.setBackground(
+                new Color(255,248,240));
+
+        back.setBorder(
+                BorderFactory.createCompoundBorder(
+
+                        BorderFactory.createLineBorder(
+                                ORANGE),
+
+                        new EmptyBorder(
+                                20,
+                                20,
+                                20,
+                                20)));
+
+        JLabel flavorTitle =
+                new JLabel(
+                        "SELECT FLAVOR");
+
+        flavorTitle.setFont(
+                new Font(
+                        "Arial",
+                        Font.BOLD,
+                        20));
+
+        flavorTitle.setAlignmentX(
+                Component.CENTER_ALIGNMENT);
+
+        String[] flavors;
+
+        if(name.equals("Coke")) {
+
+            flavors = new String[] {
+                    "Original",
+                    "Cherry",
+                    "Vanilla",
+                    "Cherry Vanilla",
+                    "Spiced"
+            };
+
+        } else if(name.equals("Fanta")) {
+
+            flavors = new String[] {
+                    "Orange",
+                    "Strawberry",
+                    "Grape",
+                    "Pineapple",
+                    "Berry"
+            };
+
+        } else if(name.equals("Sprite")) {
+
+            flavors = new String[] {
+                    "Cranberry",
+                    "Cherry",
+                    "Grape",
+                    "Ginger",
+                    "Pineapple",
+                    "Vanilla"
+            };
+
+        } else {
+
+            flavors = new String[] {
+                    "Classic",
+                    "Pink",
+                    "Strawberry",
+                    "Blackberry",
+                    "Watermelon",
+                    "Pineapple",
+                    "Passion Fruit",
+
+            };
+        }
+
+        JPanel flavorPanel =
+                new JPanel();
+
+        flavorPanel.setOpaque(false);
+
+        flavorPanel.setLayout(
+                new BoxLayout(
+                        flavorPanel,
+                        BoxLayout.Y_AXIS));
+
+        ButtonGroup flavorGroup =
+                new ButtonGroup();
+
+        JRadioButton[] flavorButtons =
+                new JRadioButton[flavors.length];
+
+        for(int i = 0; i < flavors.length; i++) {
+
+            flavorButtons[i] =
+                    new JRadioButton(
+                            flavors[i]);
+
+            flavorButtons[i].setOpaque(false);
+
+            flavorButtons[i].setFont(
+                    new Font(
+                            "Arial",
+                            Font.PLAIN,
+                            15));
+
+            flavorButtons[i].setAlignmentX(
+                    Component.CENTER_ALIGNMENT);
+
+            flavorGroup.add(
+                    flavorButtons[i]);
+
+            flavorPanel.add(
+                    flavorButtons[i]);
+        }
+
+        // =================================================
+        // DRINK SIZE
+        // =================================================
+
+        JLabel sizeTitle =
+                new JLabel(
+                        "SELECT SIZE");
+
+        sizeTitle.setFont(
                 new Font(
                         "Arial",
                         Font.BOLD,
                         18));
 
-        priceLabel.setForeground(ORANGE);
-
-        priceLabel.setAlignmentX(
+        sizeTitle.setAlignmentX(
                 Component.CENTER_ALIGNMENT);
 
-        // =========================================
-        // BUTTON
-        // =========================================
+        String[] sizes = {
+                "Small - $2.00",
+                "Medium - $2.50",
+                "Large - $3.00"
+        };
 
-        RoundedButton add =
+        JComboBox<String> sizeBox =
+                new JComboBox<>(sizes);
+
+        sizeBox.setMaximumSize(
+                new Dimension(220,40));
+
+        sizeBox.setAlignmentX(
+                Component.CENTER_ALIGNMENT);
+
+        RoundedButton addDrink =
                 new RoundedButton(
                         "ADD DRINK");
 
-        add.setMaximumSize(
+        addDrink.setMaximumSize(
                 new Dimension(180,45));
 
-        add.setAlignmentX(
+        addDrink.setAlignmentX(
                 Component.CENTER_ALIGNMENT);
 
-        add.addActionListener(e -> {
+        addDrink.addActionListener(e -> {
 
-            total += 2.50;
+            String flavor = "";
+
+            for(JRadioButton button
+                    : flavorButtons) {
+
+                if(button.isSelected()) {
+
+                    flavor =
+                            button.getText();
+                }
+            }
+
+            if(flavor.isEmpty()) {
+
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Please choose a flavor!");
+
+                return;
+            }
+
+            String selectedSize =
+                    sizeBox.getSelectedItem()
+                            .toString();
+
+            double drinkPrice = 2.00;
+
+            if(selectedSize.contains("Medium")) {
+
+                drinkPrice = 2.50;
+            }
+
+            else if(selectedSize.contains("Large")) {
+
+                drinkPrice = 3.00;
+            }
+
+            total += drinkPrice;
 
             totalLabel.setText(
                     "TOTAL: $" +
@@ -1213,35 +1375,72 @@ public class DeliciousApp extends JFrame {
 
             JOptionPane.showMessageDialog(
                     this,
-                    name + " Added!");
+                    selectedSize +
+                            " " +
+                            flavor +
+                            " " +
+                            name +
+                            " Added!");
 
             cardLayout.show(
                     mainPanel,
                     "ORDER");
         });
 
-        // =========================================
-        // ADD
-        // =========================================
+        RoundedButton backButton =
+                new RoundedButton(
+                        "← BACK");
 
-        card.add(image);
+        backButton.setMaximumSize(
+                new Dimension(180,45));
 
-        card.add(Box.createRigidArea(
-                new Dimension(0,10)));
+        backButton.setAlignmentX(
+                Component.CENTER_ALIGNMENT);
 
-        card.add(title);
+        backButton.addActionListener(e ->
 
-        card.add(Box.createRigidArea(
-                new Dimension(0,5)));
+                flipLayout.show(
+                        flipCard,
+                        "FRONT"));
 
-        card.add(priceLabel);
+        back.add(flavorTitle);
 
-        card.add(Box.createRigidArea(
+        back.add(Box.createRigidArea(
+                new Dimension(0,20)));
+
+        back.add(sizeTitle);
+
+        back.add(Box.createRigidArea(
                 new Dimension(0,15)));
 
-        card.add(add);
+        back.add(sizeBox);
 
-        return card;
+        back.add(Box.createRigidArea(
+                new Dimension(0,20)));
+
+        back.add(flavorPanel);
+
+        back.add(Box.createRigidArea(
+                new Dimension(0,20)));
+
+        back.add(addDrink);
+
+        back.add(Box.createRigidArea(
+                new Dimension(0,10)));
+
+        back.add(backButton);
+
+        // =================================================
+        // ADD PANELS
+        // =================================================
+
+        flipCard.add(front,
+                "FRONT");
+
+        flipCard.add(back,
+                "BACK");
+
+        return flipCard;
     }
 
     private ImageIcon loadIcon(
@@ -1422,11 +1621,15 @@ public class DeliciousApp extends JFrame {
             orderStarted = true;
 
             startButton.setText(
-                    "➡️ CONTINUE ORDER");
+                    " CONTINUE ORDER");
 
             JOptionPane.showMessageDialog(
                     this,
                     name + " Chips Added!");
+
+            cardLayout.show(
+                    mainPanel,
+                    "ORDER");
         });
 
         // ================= ADD =================
@@ -1460,7 +1663,7 @@ public class DeliciousApp extends JFrame {
         JPanel panel = createBasePanel();
 
         JLabel title =
-                createTitle("🧾 CHECKOUT");
+                createTitle("CHECKOUT");
 
         panel.add(title);
 
@@ -1520,7 +1723,17 @@ public class DeliciousApp extends JFrame {
         StringBuilder receipt =
                 new StringBuilder();
 
-        receipt.append("====== DELI-CIOUS ======\n\n");
+        String date =
+                java.time.LocalDate.now()
+                        .toString();
+
+        receipt.append(
+                "====== DELI-CIOUS ======\n\n");
+
+        receipt.append(
+                        "Date: ")
+                .append(date)
+                .append("\n\n");
 
         for(String item : orderItems) {
 
@@ -1528,12 +1741,18 @@ public class DeliciousApp extends JFrame {
                     .append("\n\n");
         }
 
-        receipt.append("----------------------\n");
+        receipt.append(
+                "----------------------\n");
 
-        receipt.append("TOTAL: $")
-                .append(String.format("%.2f", total));
+        receipt.append(
+                        "TOTAL: $")
+                .append(
+                        String.format(
+                                "%.2f",
+                                total));
 
-        receiptArea.setText(receipt.toString());
+        receiptArea.setText(
+                receipt.toString());
     }
 
     // =========================================================
@@ -1670,7 +1889,7 @@ public class DeliciousApp extends JFrame {
             orderStarted = true;
 
             startButton.setText(
-                    "➡️ CONTINUE ORDER");
+                    "CONTINUE ORDER");
 
             JOptionPane.showMessageDialog(
                     this,
