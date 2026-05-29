@@ -1,0 +1,43 @@
+
+===== ORDER =====
+Sandwich
+Size: 12
+Bread: White
+Toasted: true
+Meats: [Roast Beef]
+Extra Meats: []
+Cheeses: [Provolone]
+Extra Cheeses: []
+Toppings: [Mushrooms]
+Sauces: [Ranch]
+Price: $13.75
+Sandwich
+Size: 8
+Bread: White
+Toasted: true
+Meats: [Bacon]
+Extra Meats: []
+Cheeses: [Cheddar]
+Extra Cheeses: []
+Toppings: [Lettuce, Tomatoes]
+Sauces: [Ranch]
+Price: $10.50
+Sandwich
+Size: 4
+Bread: White
+Toasted: true
+Meats: [Steak]
+Extra Meats: []
+Cheeses: [American]
+Extra Cheeses: []
+Toppings: [Peppers]
+Sauces: [Mayo]
+Price: $7.25
+Drink
+Size: Medium
+Flavor: fanta
+Price: $2.50
+Chips
+Type: Classic
+Price: $1.50
+TOTAL: $35.50

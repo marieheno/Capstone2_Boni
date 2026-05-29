@@ -1,0 +1,14 @@
+==== DELI-cious Receipt ====
+===== ORDER =====
+Sandwich
+Size: 8
+Bread: Wheat
+Toasted: false
+Meats: [Salami]
+Extra Meats: []
+Cheeses: [American]
+Extra Cheeses: []
+Toppings: [Lettuce]
+Sauces: [Ranch]
+Price: $10.50
+TOTAL: $10.50
